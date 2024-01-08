@@ -4,23 +4,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './login-page/login-page.component';
-import { RegisterPageComponent } from './register-page/register-page.component';
 import { SongsPageComponent } from './songs-page/songs-page.component';
 import { SongsModalComponent } from './songs-modal/songs-modal.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PlaylistModalComponent } from './playlist-modal/playlist-modal.component';
 import { PlaylistPageComponent } from './playlist-page/playlist-page.component';
+import { RegisterModalComponent } from './register-modal/register-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
-    RegisterPageComponent,
     SongsPageComponent,
     SongsModalComponent,
     PlaylistModalComponent,
-    PlaylistPageComponent
+    PlaylistPageComponent,
+    RegisterModalComponent
   ],
   imports: [
     BrowserModule,

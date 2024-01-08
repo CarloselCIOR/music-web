@@ -1,0 +1,19 @@
+<section>
+    <div class="text-right mx-5">
+        <button (click)="onClose()">
+            x
+        </button>
+    </div>
+
+    <div class="p-6 space-y-4">
+        <h1 class="text-xl font-bold text-black">Registrar Usuario</h1>
+        <div class="space-y-4 md:space-y-6">
+            <input class="bg-black text-white" [(ngModel)]="userName" placeholder="Usuario"><br>
+            <input class="bg-black text-white" [(ngModel)]="email" placeholder="Correo"><br>
+            <input class="bg-black text-white" [(ngModel)]="password" placeholder="Contraseña"><br>
+            <div class="text-center">
+                <button (click)="createUser()" class="bg-blue-500">Registrarse</button>
+            </div>
+        </div>
+    </div>
+</section>

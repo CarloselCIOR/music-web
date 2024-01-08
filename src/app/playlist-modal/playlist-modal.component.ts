@@ -15,7 +15,7 @@ export class PlaylistModalComponent {
   public usuario_email = "";
   public nombre = "";
   public descripcion = "";
-  public canciones = "";
+  public canciones: any[] = [];
 
   constructor(
     public dialogRef: MatDialogRef<PlaylistModalComponent>,
@@ -36,7 +36,7 @@ export class PlaylistModalComponent {
       descripcion : this.descripcion,
       canciones : this.canciones
     }
-
+    console.log(data)
     this.apiProv.createPlaylist(data).then((res) => {
       if(res){
         Swal.fire({

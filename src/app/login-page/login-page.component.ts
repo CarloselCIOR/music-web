@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { ApiProvider } from '../providers/api.prov';
+import { MatDialog } from '@angular/material/dialog';
+
+import {RegisterModalComponent} from '../register-modal/register-modal.component';
+
 
 @Component({
   selector: 'app-login-page',
@@ -10,9 +14,8 @@ export class LoginPageComponent {
   public email: string = '';
   public password: string = '';
 
-  constructor(private apiProv: ApiProvider){
+  constructor(private apiProv: ApiProvider, public dialog : MatDialog){
     if(apiProv.isAuthenticatedUser()) { 
-      //window.location.href = "/songs";
       window.location.href = "/playlist";
     }
   }
@@ -27,11 +30,25 @@ export class LoginPageComponent {
       console.log(res);
       if(res.token){
         localStorage.setItem('token', res.token);
-        //window.location.href = "/songs";
         window.location.href = "/playlist";
       }
     });
   }
 
+  public newUserModal(){
+    const dialogRef = this.dialog.open(RegisterModalComponent, {
+      data: {
+        new: true
+      },
+
+      disableClose: true,
+      hasBackdrop: true,
+      width: '80%',
+      height: '80%'
+    });
+    dialogRef.afterClosed().subscribe((result: any) => {
+      window.location.href = "/login";
+    });
+  }
 
 }

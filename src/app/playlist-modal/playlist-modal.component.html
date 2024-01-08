@@ -13,14 +13,18 @@
             <input class="bg-black text-white" [(ngModel)]="usuario_email" placeholder="Usuario"><br>
             <input class="bg-black text-white" [(ngModel)]="nombre" placeholder="Nombre"><br>
             <input class="bg-black text-white" [(ngModel)]="descripcion" placeholder="Descripcion"><br>
-            <input class="bg-black text-white" [(ngModel)]="canciones" placeholder="Canciones"><br>
-
-          
 
             <div class="text-center">
+                <h3>Canciones:</h3>
+
                 @if (new){
+                    <input class="bg-black text-white" [(ngModel)]="canciones" placeholder="Cancion"><br>
+
                     <button (click)="createPlaylist()" class="bg-blue-500">Guardar</button>
                 } @else {
+                    @for (cancion of canciones; track cancion){
+                        <input class="bg-black text-white" [(ngModel)]="cancion.cancion_id" placeholder="Cancion"><br>
+                    }
                     <button (click)="updatePlaylist()" class="bg-blue-500">Actualizar</button>
                 }
             </div>
