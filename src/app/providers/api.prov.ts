@@ -117,7 +117,7 @@ export class ApiProvider{
     //Funcion para obtener todas las playlist, se le da la URL + 'playlist' para comunicarse api. Devuelve data o imprime error.
     getPlaylist(): Promise<any>{
         return new Promise((resolve, reject) => {
-            axios.get(this.url+'playlist').then(res =>{
+            axios.get(this.url+'playlists').then(res =>{
                 resolve(res.data);
             }).catch(err =>{
                 console.log(err);
@@ -128,7 +128,7 @@ export class ApiProvider{
     //Funcion para obtener la playlist por Id, se le da la URL + 'playlist' + Id para comunicarse api. Devuelve data o imprime error.
     getPlaylistById(playlistId: any): Promise<any>{
         return new Promise((resolve, reject) => {
-            axios.get(this.url+'playlist/'+playlistId).then(res =>{
+            axios.get(this.url+'playlists/'+playlistId).then(res =>{
                 resolve(res.data);
             }).catch(err =>{
                 console.log(err);
@@ -141,7 +141,7 @@ export class ApiProvider{
         const token = localStorage.getItem('token');
 
         return new Promise((resolve, reject) => {
-            axios.post(this.url+'playlist', data, { 
+            axios.post(this.url+'playlists', data, { 
                 headers : { 
                     Authorization : token
                 } 
@@ -157,7 +157,7 @@ export class ApiProvider{
     updatePlaylist(playlistId: any, data: any): Promise<any>{
         const token = localStorage.getItem('token');
         return new Promise((resolve, reject) => {
-            axios.put(this.url+'playlist/'+playlistId, data, { 
+            axios.put(this.url+'playlists/'+playlistId, data, { 
                 headers : { 
                     Authorization : token
                 } 
@@ -174,7 +174,7 @@ export class ApiProvider{
         const token = localStorage.getItem('token');
 
         return new Promise((resolve, reject) => {
-            axios.delete(this.url+'playlist/'+ playlistId, { 
+            axios.delete(this.url+'playlists/'+ playlistId, { 
                 headers : { 
                     Authorization : token
                 } 
