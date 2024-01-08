@@ -18,6 +18,10 @@ export class PlaylistPageComponent {
     this.getPlaylist();
   }
 
+  public tosongs(){
+    window.location.href = "/songs"
+  }
+
   //Llamada al GetPlaylist de ApiProvider
   public getPlaylist(){
     this.apiProv.getPlaylist().then(res => {
@@ -56,12 +60,12 @@ export class PlaylistPageComponent {
         descripcion: playlist.descripcion,
         canciones: playlist.canciones
       },
-
       disableClose: true,
       hasBackdrop: true,
       width: '80%',
       height: '80%'
     });
+    console.log(playlist)
     dialogRef.afterClosed().subscribe((result: any) => {
       this.getPlaylist();
     });

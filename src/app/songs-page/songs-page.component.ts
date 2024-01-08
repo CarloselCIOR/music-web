@@ -19,6 +19,9 @@ export class SongsPageComponent {
     this.getSongs();
   }
 
+  public toplaylists(){
+    window.location.href = "/playlists"
+  }
   //Llamada al GetSongss de ApiProvider
   public getSongs(){
     this.apiProv.getSongs().then(res => {
