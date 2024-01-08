@@ -12,7 +12,8 @@ export class LoginPageComponent {
 
   constructor(private apiProv: ApiProvider){
     if(apiProv.isAuthenticatedUser()) { 
-      window.location.href = "/songs";
+      //window.location.href = "/songs";
+      window.location.href = "/playlist";
     }
   }
 
@@ -26,7 +27,8 @@ export class LoginPageComponent {
       console.log(res);
       if(res.token){
         localStorage.setItem('token', res.token);
-        window.location.href = "/songs";
+        //window.location.href = "/songs";
+        window.location.href = "/playlist";
       }
     });
   }

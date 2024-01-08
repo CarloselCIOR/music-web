@@ -113,4 +113,76 @@ export class ApiProvider{
             })
         });       
     } 
+
+    //Funcion para obtener todas las playlist, se le da la URL + 'playlist' para comunicarse api. Devuelve data o imprime error.
+    getPlaylist(): Promise<any>{
+        return new Promise((resolve, reject) => {
+            axios.get(this.url+'playlist').then(res =>{
+                resolve(res.data);
+            }).catch(err =>{
+                console.log(err);
+            });
+        });
+    }
+
+    //Funcion para obtener la playlist por Id, se le da la URL + 'playlist' + Id para comunicarse api. Devuelve data o imprime error.
+    getPlaylistById(playlistId: any): Promise<any>{
+        return new Promise((resolve, reject) => {
+            axios.get(this.url+'playlist/'+playlistId).then(res =>{
+                resolve(res.data);
+            }).catch(err =>{
+                console.log(err);
+            });
+        });
+    }
+
+    //Funcion para crear las playlist, se le da la URL y la data para comunicarse api. Devuelve data o imprime error.
+    createPlaylist(data: any): Promise<any>{
+        const token = localStorage.getItem('token');
+
+        return new Promise((resolve, reject) => {
+            axios.post(this.url+'playlist', data, { 
+                headers : { 
+                    Authorization : token
+                } 
+            }).then(res =>{
+                resolve(res.data);
+            }).catch(err =>{
+                console.log(err);
+            })
+        });       
+    }
+    
+    //Funcion para actualizar las playlist, se le da la URL, el ID, y la data para comunicarse api. Devuelve data o imprime error.
+    updatePlaylist(playlistId: any, data: any): Promise<any>{
+        const token = localStorage.getItem('token');
+        return new Promise((resolve, reject) => {
+            axios.put(this.url+'playlist/'+playlistId, data, { 
+                headers : { 
+                    Authorization : token
+                } 
+            }).then(res =>{
+                resolve(res.data);
+            }).catch(err =>{
+                console.log(err);
+            })
+        });       
+    }
+    
+    //Funcion para borrar las canciones, se le da la URL + Id para comunicarse api. Devuelve data o imprime error.
+    deletePlaylist(playlistId: any): Promise<any>{
+        const token = localStorage.getItem('token');
+
+        return new Promise((resolve, reject) => {
+            axios.delete(this.url+'playlist/'+ playlistId, { 
+                headers : { 
+                    Authorization : token
+                } 
+            }).then(res =>{
+                resolve(res.data);
+            }).catch(err =>{
+                console.log(err);
+            })
+        });       
+    } 
 }
