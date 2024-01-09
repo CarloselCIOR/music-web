@@ -15,7 +15,7 @@ export class PlaylistModalComponent {
   public usuario_email = "";
   public nombre = "";
   public descripcion = "";
-  public canciones: any[] = [];
+  public canciones = "";
 
   constructor(
     public dialogRef: MatDialogRef<PlaylistModalComponent>,
