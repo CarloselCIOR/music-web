@@ -1,0 +1,29 @@
+<h1 class="text-3xl font-bold underline bg-lime-950">Pagina de Playlists</h1>
+
+<div>
+    <button (click)="newPlaylistModal()" class="bg-green-500">Nueva Playlist</button>
+
+    <button (click)="logout()" class="bg-yellow-500">Cerrar Sesión</button>
+</div>
+
+<ul>
+    @for (playlist of playlist; track playlist._id){
+        
+
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <!-- <a href="#">
+                <img class="rounded-t-lg" src="{{song.url}}" alt="Song" style="width: 50px;"/> --No seria img
+            </a> -->
+            <div class="p-5">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{playlist.nombre}}</h5>
+                </a>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{playlist.descripcion}}</p>
+
+                <button (click)="updatePlaylistModal(playlist)" class="bg-blue-500">Actualizar</button>
+                <button (click)="deletePlaylist(playlist)" class="bg-red-500">Eliminar</button>
+            </div>
+        </div>
+
+    }
+</ul>

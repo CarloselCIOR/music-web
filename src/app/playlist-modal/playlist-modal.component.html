@@ -1,0 +1,27 @@
+<section>
+    <div class="text-right mx-5">
+        <button (click)="onClose()">
+            x
+        </button>
+    </div>
+
+    <div class="p-6 space-y-4">
+        <h1 class="text-xl font-bold text-black">
+            {{new ? 'Nueva Playlist' : 'Actualiza Playlist'}}
+        </h1>
+        <div class="space-y-4 md:space-y-6">
+            <input class="bg-black text-white" [(ngModel)]="usuario_email" placeholder="Usuario"><br>
+            <input class="bg-black text-white" [(ngModel)]="nombre" placeholder="Nombre"><br>
+            <input class="bg-black text-white" [(ngModel)]="descripcion" placeholder="Descripcion"><br>
+            <input class="bg-black text-white" [(ngModel)]="canciones" placeholder="Canciones"><br>
+
+            <div class="text-center">
+                @if (new){
+                    <button (click)="createPlaylist()" class="bg-blue-500">Guardar</button>
+                } @else {
+                    <button (click)="updatePlaylist()" class="bg-blue-500">Actualizar</button>
+                }
+            </div>
+        </div>
+    </div>
+</section>

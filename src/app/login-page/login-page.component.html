@@ -1,0 +1,30 @@
+<!--<div>
+    <input [(ngModel)]="email" placeholder="email">
+    <input [(ngModel)]="password" placeholder="password">
+
+    <button (click)="login()">Ingresar</button>
+</div>
+
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Formulario de Login</title>
+  <link rel="stylesheet" type="text/css" href="login-page.component.css">
+  <link rel="stylesheet" type="text/css" href="../../styles.css">
+</head>
+<body class="bg-[#111111]">
+  
+
+<div class="flex h-[calc(100vh-7rem)] items-center justify-center">
+  <form method="post" (submit)="login()" class="flex flex-col gap-y-3 w-3/12">
+    <h1 class="text-slate-100 font-bold text-4xl">Login</h1>
+    <input [(ngModel)]="email" type="text" name="u" placeholder="Username" required class="px-3 py-3 rounded-md"/>
+    <input [(ngModel)]="password" type="password" name="p" placeholder="Password" required class="px-3 py-3 rounded-md" />
+    <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
+  </form>
+</div>
+
+</body>
+</html>
