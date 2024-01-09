@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
   styleUrl: './songs-modal.component.css'
 })
 export class SongsModalComponent {
+  //Variables para los datos de la cancion
   public new = true;
   public songId = "";
   public titulo = "";
@@ -34,6 +35,7 @@ export class SongsModalComponent {
       this.url = data.url;
   }
 
+  //Llamada de createSong de ApiProvider, si la creación es exitosa muestra notificación con Swal.fire
   public createSong(): void{
     const data = {
       titulo : this.titulo,
@@ -56,6 +58,7 @@ export class SongsModalComponent {
     });
   }
 
+  //Llamada de updateSong de ApiProvider
   public updateSong(): void{
     const data = {
       titulo : this.titulo,
@@ -78,6 +81,7 @@ export class SongsModalComponent {
     });
   }
   
+  //Cierra el modal
   onClose(){
     this.dialogRef.close();
   }

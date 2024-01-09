@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
 })
 
 export class PlaylistModalComponent {
+  //Variables del modelo Playlist
   public new = true; 
   public playlistId = "";
   public usuario_email = "";
@@ -17,6 +18,7 @@ export class PlaylistModalComponent {
   public descripcion = "";
   public canciones = "";
 
+  //Constructor se ejecuta al instanciar el componente
   constructor(
     public dialogRef: MatDialogRef<PlaylistModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -29,6 +31,7 @@ export class PlaylistModalComponent {
       this.canciones = data.canciones;
   }
 
+  //CreatePlaylist se ejecuta cuando se intenta crear una nueva playlist
   public createPlaylist(): void{
     const data = {
       usuario_email : this.usuario_email,
@@ -48,6 +51,7 @@ export class PlaylistModalComponent {
     });
   }
 
+  //UpdatePlaylist se ejecuta cuando se actualizaa una playlist existente 
   public updatePlaylist(): void{
     const data = {
       usuario_email : this.usuario_email,
@@ -67,6 +71,7 @@ export class PlaylistModalComponent {
     });
   }
 
+  //Se encarga de cerrar el modal
   onClose(){
     this.dialogRef.close();
   }

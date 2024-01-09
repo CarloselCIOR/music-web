@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 })
 
 export class SongsPageComponent {
+  //Declaración de la variable songs
   public songs : any = [];
   constructor(
     private apiProv: ApiProvider,
@@ -19,6 +20,7 @@ export class SongsPageComponent {
     this.getSongs();
   }
 
+  //Redirige a la página de playlist
   public toplaylists(){
     window.location.href = "/playlists"
   }
@@ -29,11 +31,13 @@ export class SongsPageComponent {
     });
   }
 
+  //Llamada de logout de Api provider
   public logout(){
     this.apiProv.logout();
     window.location.href = "/login";
   }
 
+  //Abre un modal utilizando SongModalComponent para crear una nueva canción
   public newSongModal(){
     const dialogRef = this.dialog.open(SongsModalComponent, {
       data: {
@@ -50,6 +54,7 @@ export class SongsPageComponent {
     });
   }
 
+  //Abre un modal utilizando SongModalComponent para actualizar una canción existente
   public updateSongModal(song: any){
     const dialogRef = this.dialog.open(SongsModalComponent, {
       data: {
@@ -74,6 +79,7 @@ export class SongsPageComponent {
     });
   }
 
+  //Muestra una confirmación a través de Swal, llamada al metodo deleteSong de ApiProvider
   public deleteSong(song: any){
     Swal.fire({
       showCancelButton: true,

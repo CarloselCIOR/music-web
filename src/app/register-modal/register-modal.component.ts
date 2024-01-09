@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
   styleUrl: './register-modal.component.css'
 })
 export class RegisterModalComponent {
+  //Variables 
   public userName = "";
   public email = "";
   public password = "";
@@ -23,6 +24,7 @@ export class RegisterModalComponent {
       this.password = data.password;
   }
 
+  //createUser se ejecuta cuando se intenta crear un nuevo usuario
   public createUser(): void{
     const data = {
       userName : this.userName,
@@ -42,6 +44,7 @@ export class RegisterModalComponent {
     });
   }
   
+  //Método para cerrar el modal
   onClose(){
     this.dialogRef.close();
   }

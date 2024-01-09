@@ -11,15 +11,18 @@ import {RegisterModalComponent} from '../register-modal/register-modal.component
   styleUrl: './login-page.component.css'
 })
 export class LoginPageComponent {
+  //variables 
   public email: string = '';
   public password: string = '';
 
+  //Constructor para inicializar el componente
   constructor(private apiProv: ApiProvider, public dialog : MatDialog){
     if(apiProv.isAuthenticatedUser()) { 
       window.location.href = "/playlist";
     }
   }
 
+  //Método login, se ejecuta cuando el usuario hace clic en el boton de inicio de sesión
   public login(){
     const data = {
       email: this.email,
@@ -35,6 +38,7 @@ export class LoginPageComponent {
     });
   }
 
+  //Método newUserModal, se activa para registrar un nuevo usuario
   public newUserModal(){
     const dialogRef = this.dialog.open(RegisterModalComponent, {
       data: {

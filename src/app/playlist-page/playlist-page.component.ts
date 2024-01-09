@@ -9,15 +9,19 @@ import Swal from 'sweetalert2';
   templateUrl: './playlist-page.component.html',
   styleUrl: './playlist-page.component.css'
 })
+//Clase del componente y funcionalidad asociada con las playlist
 export class PlaylistPageComponent {
+  //Variable playlist almacena la información de las playlist
   public playlist : any = [];
   constructor(
     private apiProv: ApiProvider,
     public dialog : MatDialog,
   ) {
+    //Se llama al método getPlaylist para obtener las playlist existentes
     this.getPlaylist();
   }
 
+  //Redirige a la página de canciones
   public tosongs(){
     window.location.href = "/songs"
   }
@@ -29,11 +33,13 @@ export class PlaylistPageComponent {
     });
   }
 
+  //Llamada de logout de ApiProvider para cerrar sesión
   public logout(){
     this.apiProv.logout();
     window.location.href = "/login";
   }
 
+  //Abre el modal PlaylistModalComponent para crear una nueva playlist
   public newPlaylistModal(){
     const dialogRef = this.dialog.open(PlaylistModalComponent, {
       data: {
@@ -50,6 +56,7 @@ export class PlaylistPageComponent {
     });
   }
 
+  //Abre el modal PlaylistModalComponente para actualizar la playlist
   public updatePlaylistModal(playlist: any){
     const dialogRef = this.dialog.open(PlaylistModalComponent, {
       data: {
@@ -71,6 +78,7 @@ export class PlaylistPageComponent {
     });
   }
 
+  //Confirmación a través de Swal, llama al método deletePlaylist de ApiProvider para eliminar
   public deletePlaylist(playlist: any){
     Swal.fire({
       showCancelButton: true,
