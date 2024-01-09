@@ -1,29 +1,54 @@
-<h1 class="text-3xl font-bold underline bg-lime-950">Pagina de Playlists</h1>
-
-<div>
-    <button (click)="newPlaylistModal()" class="bg-green-500">Nueva Playlist</button>
-    <button (click)="tosongs()" class="bg-pink-500">Canciones</button>
-    <button (click)="logout()" class="bg-yellow-500">Cerrar Sesión</button>
+<div class="bg-blue-900 text-white py-4 flex items-center justify-between px-4">
+    <div>
+        <img src="../../assets/Logo.png" alt="Logo" class="h-8 w-auto">
+    </div>
+    <h1 class="text-3xl font-bold">Página de Playlist</h1>
+    <div></div> <!-- Esto es un espacio en blanco, puedes eliminarlo si no es necesario -->
 </div>
 
-<ul>
-    @for (playlist of playlist; track playlist._id){
-        
 
-        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <!-- <a href="#">
-                <img class="rounded-t-lg" src="{{song.url}}" alt="Song" style="width: 50px;"/> --No seria img
-            </a> -->
-            <div class="p-5">
-                <a href="#">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{playlist.nombre}}</h5>
-                </a>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{playlist.descripcion}}</p>
 
-                <button (click)="updatePlaylistModal(playlist)" class="bg-blue-500">Actualizar</button>
-                <button (click)="deletePlaylist(playlist)" class="bg-red-500">Eliminar</button>
+<div class="flex justify-between items-center p-4 bg-gray-800">
+    <div>
+        <button (click)="newPlaylistModal()"
+            class="bg-green-500 hover:bg-green-600 text-black py-2 px-4 rounded-full shadow-md focus:outline-none focus:ring focus:border-green-700 transition duration-300 ease-in-out">Nueva
+            Playlist</button>
+        <button (click)="tosongs()"
+            class="bg-violet-400 hover:bg-violet-500 text-black py-2 px-4 rounded-full shadow-md focus:outline-none focus:ring focus:border-pink-700 transition duration-300 ease-in-out">Canciones</button>
+    </div>
+    <div>
+        <button (click)="logout()"
+            class="bg-red-500 hover:bg-red-600 text-black py-2 px-4 rounded-full shadow-md focus:outline-none focus:ring focus:border-yellow-700 transition duration-300 ease-in-out">Cerrar
+            Sesión</button>
+    </div>
+</div>
+
+<div class="flex justify-center items-center m-4">
+    <div class="card-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div *ngFor="let playlist of playlist" class="card">
+
+
+
+            <div
+                class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+
+                <div class="p-5">
+
+                    <p class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                        {{playlist.nombre}}</p>
+                    <p class="mb-2 text-1xl tracking-tight text-gray-900 dark:text-white">{{playlist.usuario_email}}
+                    </p>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{playlist.descripcion}}</p>
+                    <p class="mb-2 text-1xl tracking-tight text-gray-900 dark:text-white">Canciones:</p>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{playlist.canciones}}</p>
+
+                    <button (click)="updatePlaylistModal(playlist)"
+                        class="bg-blue-500 hover:bg-blue-700 text-black py-2 px-4 rounded-full shadow-md mr-2">Actualizar</button>
+                    <button (click)="deletePlaylist(playlist)"
+                        class="bg-red-400 hover:bg-red-500 text-black py-2 px-4 rounded-full shadow-md">Eliminar</button>
+                </div>
             </div>
-        </div>
 
-    }
-</ul>
+        </div>
+    </div>
+</div>

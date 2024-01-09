@@ -35,8 +35,22 @@ export class PlaylistPageComponent {
 
   //Llamada de logout de ApiProvider para cerrar sesión
   public logout(){
-    this.apiProv.logout();
-    window.location.href = "/login";
+    Swal.fire({
+      title: "¿Seguro que desea salir?",
+      text: "Tu sesión será cerrada",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sí, Cerrar sesión!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.apiProv.logout();
+        window.location.href = "/login";
+      }
+    });
+
+    
   }
 
   //Abre el modal PlaylistModalComponent para crear una nueva playlist

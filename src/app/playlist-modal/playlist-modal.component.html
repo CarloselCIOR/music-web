@@ -16,15 +16,11 @@
 
             <div class="text-center">
                 <h3>Canciones:</h3>
+                <input class="bg-black text-white" [(ngModel)]="canciones" placeholder="Cancion"><br>
 
                 @if (new){
-                    <input class="bg-black text-white" [(ngModel)]="canciones" placeholder="Cancion"><br>
-
                     <button (click)="createPlaylist()" class="bg-blue-500">Guardar</button>
                 } @else {
-                    @for (cancion of canciones; track cancion){
-                        <input class="bg-black text-white" [(ngModel)]="canciones" placeholder="Cancion"><br>
-                    }
                     <button (click)="updatePlaylist()" class="bg-blue-500">Actualizar</button>
                 }
             </div>

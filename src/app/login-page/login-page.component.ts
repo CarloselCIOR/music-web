@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ApiProvider } from '../providers/api.prov';
 import { MatDialog } from '@angular/material/dialog';
-
+import Swal from 'sweetalert2';
 import {RegisterModalComponent} from '../register-modal/register-modal.component';
 
 
@@ -30,6 +30,7 @@ export class LoginPageComponent {
     }
 
     this.apiProv.login(data).then(res =>{
+      
       console.log(res);
       if(res.token){
         localStorage.setItem('token', res.token);
