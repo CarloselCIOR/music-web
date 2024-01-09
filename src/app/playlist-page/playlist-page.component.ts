@@ -49,8 +49,6 @@ export class PlaylistPageComponent {
         window.location.href = "/login";
       }
     });
-
-    
   }
 
   //Abre el modal PlaylistModalComponent para crear una nueva playlist

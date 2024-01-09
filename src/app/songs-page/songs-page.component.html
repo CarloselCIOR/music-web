@@ -1,29 +1,45 @@
-<h1 class="text-3xl font-bold underline bg-lime-950">Pagina de Canciones</h1>
-
-<div>
-    <button (click)="newSongModal()" class="bg-green-500">Nueva Cancion</button>
-    <button (click)="toplaylists()" class="bg-pink-500">Playlists</button>
-    <button (click)="logout()" class="bg-yellow-500">Cerrar Sesión</button>
+<div class="bg-gray-950	text-white py-4 flex items-center justify-between px-4">
+    <div>
+        <img src="../../assets/Logo.png" alt="Logo" class="h-8 w-auto">
+    </div>
+        <h1 class="text-3xl font-bold">Página de Canciones</h1>
+    <div></div>
 </div>
 
-<ul>
-    @for (song of songs; track song._id){
-        
+<div class="flex justify-between items-center p-4 bg-gray-800">
+    <div>
+        <button (click)="newSongModal()" class="bg-green-500 hover:bg-green-600 text-black py-2 px-4 rounded-full shadow-md focus:outline-none focus:ring focus:border-green-700 transition duration-300 ease-in-out">Nueva Canción</button>
+        <button (click)="toplaylists()" class="bg-violet-400 hover:bg-violet-500 text-black py-2 px-4 rounded-full shadow-md focus:outline-none focus:ring focus:border-pink-700 transition duration-300 ease-in-out">Playlists</button>
+    </div>
+    <div>
+        <button (click)="logout()"
+            class="bg-red-500 hover:bg-red-600 text-black py-2 px-4 rounded-full shadow-md focus:outline-none focus:ring focus:border-yellow-700 transition duration-300 ease-in-out">Cerrar Sesión</button>
+    </div>
+</div>
 
-        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <!-- <a href="#">
-                <img class="rounded-t-lg" src="{{song.url}}" alt="Song" style="width: 50px;"/> --No seria img
-            </a> -->
-            <div class="p-5">
-                <a href="#">
+<div class="flex justify-center items-center m-4">
+    <div class="card-container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div *ngFor="let song of songs" class="card">
+
+            <div
+                class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+
+                <div class="p-5">
+
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{song.titulo}}</h5>
-                </a>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{song.artista}}</p>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{song.artista}}</p>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{song.album}}</p>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{song.genero}}</p>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{song.duracion}}</p>
+                    <a href={{song.url}} target="_blank"><p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Escuchala aqui ♫ ♪ ♫ ♪ !!!</p></a>
 
-                <button (click)="updateSongModal(song)" class="bg-blue-500">Actualizar</button>
-                <button (click)="deleteSong(song)" class="bg-red-500">Eliminar</button>
+                    <button (click)="updateSongModal(song)"
+                        class="bg-blue-500 hover:bg-blue-700 text-black py-2 px-4 rounded-full shadow-md mr-2">Actualizar</button>
+                    <button (click)="deleteSong(song)"
+                        class="bg-red-400 hover:bg-red-500 text-black py-2 px-4 rounded-full shadow-md">Eliminar</button>
+                </div>
             </div>
-        </div>
 
-    }
-</ul>
+        </div>
+    </div>
+</div>
