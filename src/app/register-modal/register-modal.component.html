@@ -1,19 +1,25 @@
-<section>
+<section class="bg-gray-900 bg-opacity-90 text-white flex justify-center items-center h-full relative">
     <div class="text-right mx-5">
-        <button (click)="onClose()">
-            x
-        </button>
+        <button (click)="onClose()" class="absolute top-0 right-0 m-4 text-white text-xl font-bold focus:outline-none">&times;</button>
     </div>
 
     <div class="p-6 space-y-4">
-        <h1 class="text-xl font-bold text-black">Registrar Usuario</h1>
-        <div class="space-y-4 md:space-y-6">
-            <input class="bg-black text-white" [(ngModel)]="userName" placeholder="Usuario"><br>
-            <input class="bg-black text-white" [(ngModel)]="email" placeholder="Correo"><br>
-            <input class="bg-black text-white" [(ngModel)]="password" placeholder="Contraseña"><br>
-            <div class="text-center">
-                <button (click)="createUser()" class="bg-blue-500">Registrarse</button>
+        <h1 class="text-xl font-bold text-white">Registrar Usuario</h1>
+        <div class="flex flex-col space-y-4 md:space-y-6">
+            <input class="bg-gray-800 text-white py-2 px-4 rounded-md focus:outline-none" [(ngModel)]="userName" placeholder="Usuario"><br>
+            <input class="bg-gray-800 text-white py-2 px-4 rounded-md focus:outline-none" [(ngModel)]="email" placeholder="Correo"><br>
+            <input class="bg-gray-800 text-white py-2 px-4 rounded-md focus:outline-none" [(ngModel)]="password" placeholder="Contraseña"><br>
+
+            <div *ngIf="areFieldsEmpty()">
+                <p class="text-red-500">Por favor completa todos los campos.</p>
             </div>
+
+            <ng-container *ngIf="!areFieldsEmpty(); else disableUpdate">
+                <button (click)="createUser()"  class="bg-blue-500 hover:bg-blue-700 text-black py-2 px-4 rounded-full shadow-md focus:outline-none focus:ring focus:border-blue-700 transition duration-300 ease-in-out">Registrarse</button>
+            </ng-container>
+            <ng-template #disableUpdate>
+                <button class="bg-blue-300 text-gray-500 py-2 px-4 rounded-full shadow-md cursor-not-allowed opacity-50" disabled>Registrarse</button>
+            </ng-template>
         </div>
     </div>
 </section>

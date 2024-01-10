@@ -15,6 +15,13 @@ export class RegisterModalComponent {
   public password = "";
   public createdAt = new Date();
 
+  areFieldsEmpty(): boolean {
+    // Verificar si algún campo está vacío
+    return (
+        !this.userName || !this.email || !this.password
+    );
+  }
+
   constructor(
     public dialogRef: MatDialogRef<RegisterModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,

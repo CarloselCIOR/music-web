@@ -1,4 +1,4 @@
-<section class="bg-gray-900 bg-opacity-90 text-white flex justify-center items-center min-h-screen relative">
+<section class="bg-gray-900 bg-opacity-90 text-white flex justify-center items-center h-full relative">
     <div class="text-center">
         <div class="mx-5 py-4">
             <button (click)="onClose()" class="absolute top-0 right-0 m-4 text-white text-xl font-bold focus:outline-none">&times;</button>
@@ -14,15 +14,15 @@
                 <input class="bg-gray-800 text-white py-2 px-4 rounded-md focus:outline-none" [(ngModel)]="usuario_email" placeholder="Usuario">
                 <input class="bg-gray-800 text-white py-2 px-4 rounded-md focus:outline-none" [(ngModel)]="nombre" placeholder="Nombre">
                 <input class="bg-gray-800 text-white py-2 px-4 rounded-md focus:outline-none" [(ngModel)]="descripcion" placeholder="Descripcion">
+                <h3 class="text-white">Canciones:</h3>
+                <textarea class="bg-gray-800 text-white py-2 px-4 rounded-md focus:outline-none resize-none m-4 h-24 w-120" [(ngModel)]="canciones" placeholder="Canciones"></textarea><br>
 
                 <div *ngIf="areFieldsEmpty()">
                     <p class="text-red-500">Por favor completa todos los campos.</p>
                 </div>
 
                 <div>
-                    <h3 class="text-white">Canciones:</h3>
-                    <input class="bg-gray-800 text-white py-2 px-4 rounded-md focus:outline-none" [(ngModel)]="canciones" placeholder="Cancion">
-
+                    
                     @if(new){
                         <ng-container *ngIf="!areFieldsEmpty(); else disableUpdate">
                             <button (click)="createPlaylist()" class="bg-blue-500 hover:bg-blue-700 text-black py-2 px-4 rounded-full shadow-md focus:outline-none focus:ring focus:border-blue-700 transition duration-300 ease-in-out">Crear</button>
