@@ -1,27 +1,30 @@
-# LibraryWeb
+# WEB para Biblioteca de Musica
+  La Web está diseñada para añadir Canciones y sus metadatos. Requiere autenticacion para realizar modificaciones.
+    
+## Informacion para consumir API
+Login: https://music-web-steel.vercel.app/login
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.3.
+Canciones: https://music-web-steel.vercel.app/songs (Requiere autenticarse para modificar)
 
-## Development server
+Playlist: https://music-web-steel.vercel.app/playlist (Requiere autenticarse para modificar)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Clonar el Repositorio
 
-## Code scaffolding
+Para comenzar a trabajar en este proyecto en tu máquina local, sigue estos pasos:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Abre tu terminal.
 
-## Build
+2. Utiliza el siguiente comando para clonar el repositorio en tu dispositivo:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+   ```bash
+   git clone https://github.com/CarloselCIOR/music-web
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Instala dependencias del proyecto
 
-## Running end-to-end tests
+    npm install
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
+## Ejecuta el proyecto
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+    npm run start
