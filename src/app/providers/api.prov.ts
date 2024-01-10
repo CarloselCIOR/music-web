@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import axios from 'axios';
 import { environment } from '../../environments/environment';
+import Swal from 'sweetalert2';
 
 @Injectable({
     providedIn: 'root'
@@ -9,16 +10,27 @@ import { environment } from '../../environments/environment';
 export class ApiProvider{
     url = environment.apiURL;
 
-    //Funcion para loguease
-    login(data: any) : Promise<any>{
-        return new Promise((resolve, reject) => {
-            axios.post(this.url+'users/login', data).then(res =>{
+    // Funcion para loguearse
+    login(data: any): Promise<any> {
+    return new Promise((resolve, reject) => {
+        axios.post(this.url + 'users/login', data)
+            .then(res => {
                 resolve(res.data);
-            }).catch(err =>{
-                console.log(err);
-            });    
-        });
-    }
+            })
+            .catch(err => {
+                if (err.response && err.response.status === 401) {
+                    // Mostrar un SweetAlert para la respuesta 401
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error de autenticación',
+                        text: 'Credenciales incorrectas. Por favor, verifica tu usuario y contraseña.',
+                    });
+                } else {
+                    console.log(err);
+                }
+            });
+    });
+}
 
     //Verificar si el usuario está logueado
     isAuthenticatedUser(): boolean{
@@ -76,7 +88,20 @@ export class ApiProvider{
             }).then(res =>{
                 resolve(res.data);
             }).catch(err =>{
-                console.log(err);
+                if (err.response && err.response.status === 401) {
+                    // Mostrar un SweetAlert para la respuesta 401
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error de autenticación',
+                        text: 'Credenciales incorrectas. Por favor, verifica tu usuario y contraseña.',
+                        timer: 2000
+                    });
+                    setTimeout(function() {
+                        window.location.href = "/login";
+                      }, 2000);
+                } else {
+                    console.log(err);
+                }
             })
         });       
     } 
@@ -92,7 +117,20 @@ export class ApiProvider{
             }).then(res =>{
                 resolve(res.data);
             }).catch(err =>{
-                console.log(err);
+                if (err.response && err.response.status === 401) {
+                    // Mostrar un SweetAlert para la respuesta 401
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error de autenticación',
+                        text: 'Credenciales incorrectas. Por favor, verifica tu usuario y contraseña.',
+                        timer: 2000
+                    });
+                    setTimeout(function() {
+                        window.location.href = "/login";
+                      }, 2000);
+                } else {
+                    console.log(err);
+                }
             })
         });       
     } 
@@ -109,7 +147,20 @@ export class ApiProvider{
             }).then(res =>{
                 resolve(res.data);
             }).catch(err =>{
-                console.log(err);
+                if (err.response && err.response.status === 401) {
+                    // Mostrar un SweetAlert para la respuesta 401
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error de autenticación',
+                        text: 'Credenciales incorrectas. Por favor, verifica tu usuario y contraseña.',
+                        timer: 2000
+                    });
+                    setTimeout(function() {
+                        window.location.href = "/login";
+                      }, 2000);
+                } else {
+                    console.log(err);
+                }
             })
         });       
     } 
@@ -148,7 +199,20 @@ export class ApiProvider{
             }).then(res =>{
                 resolve(res.data);
             }).catch(err =>{
-                console.log(err);
+                if (err.response && err.response.status === 401) {
+                    // Mostrar un SweetAlert para la respuesta 401
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error de autenticación',
+                        text: 'Credenciales incorrectas. Por favor, verifica tu usuario y contraseña.',
+                        timer: 2000
+                    });
+                    setTimeout(function() {
+                        window.location.href = "/login";
+                      }, 2000);
+                } else {
+                    console.log(err);
+                }
             })
         });       
     }
@@ -164,7 +228,20 @@ export class ApiProvider{
             }).then(res =>{
                 resolve(res.data);
             }).catch(err =>{
-                console.log(err);
+                if (err.response && err.response.status === 401) {
+                    // Mostrar un SweetAlert para la respuesta 401
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error de autenticación',
+                        text: 'Credenciales incorrectas. Por favor, verifica tu usuario y contraseña.',
+                        timer: 2000
+                    });
+                    setTimeout(function() {
+                        window.location.href = "/login";
+                      }, 2000);
+                } else {
+                    console.log(err);
+                }
             })
         });       
     }
@@ -181,7 +258,20 @@ export class ApiProvider{
             }).then(res =>{
                 resolve(res.data);
             }).catch(err =>{
-                console.log(err);
+                if (err.response && err.response.status === 401) {
+                    // Mostrar un SweetAlert para la respuesta 401
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error de autenticación',
+                        text: 'Credenciales incorrectas. Por favor, verifica tu usuario y contraseña.',
+                        timer: 2000
+                    });
+                    setTimeout(function() {
+                        window.location.href = "/login";
+                      }, 2000);
+                } else {
+                    console.log(err);
+                }
             })
         });       
     } 
