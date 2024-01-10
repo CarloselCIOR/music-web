@@ -18,6 +18,10 @@ export class PlaylistModalComponent {
   public descripcion = "";
   public canciones = "";
 
+  areFieldsEmpty(): boolean {
+    return !this.usuario_email || !this.nombre || !this.descripcion;
+  }
+
   //Constructor se ejecuta al instanciar el componente
   constructor(
     public dialogRef: MatDialogRef<PlaylistModalComponent>,

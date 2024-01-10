@@ -1,29 +1,36 @@
-<section>
-    <div class="text-right mx-5">
-        <button (click)="onClose()">
-            x
-        </button>
-    </div>
+<section class="bg-gray-900 bg-opacity-90 text-white flex justify-center items-center min-h-screen relative">
+    <div class="text-center">
+        <div class="mx-5 py-4">
+            <button (click)="onClose()" class="absolute top-0 right-0 m-4 text-white text-xl font-bold focus:outline-none">&times;</button>
+        </div>
 
-    <div class="p-6 space-y-4">
-        <h1 class="text-xl font-bold text-black">
-            {{new ? 'Nueva Playlist' : 'Actualiza Playlist'}}
-        </h1>
-        <div class="space-y-4 md:space-y-6">
-            <input class="bg-black text-white" [(ngModel)]="usuario_email" placeholder="Usuario"><br>
-            <input class="bg-black text-white" [(ngModel)]="nombre" placeholder="Nombre"><br>
-            <input class="bg-black text-white" [(ngModel)]="descripcion" placeholder="Descripcion"><br>
+        <div class="text-center mt-25">
+        <div class="p-6 space-y-4">
+            <h1 class="text-3xl font-bold">Nueva Playlist</h1>
 
-            <div class="text-center">
-                <h3>Canciones:</h3>
-                <input class="bg-black text-white" [(ngModel)]="canciones" placeholder="Cancion"><br>
+            <div class="flex flex-col space-y-4 md:space-y-6">
+                <input class="bg-gray-800 text-white py-2 px-4 rounded-md focus:outline-none" [(ngModel)]="usuario_email" placeholder="Usuario">
+                <input class="bg-gray-800 text-white py-2 px-4 rounded-md focus:outline-none" [(ngModel)]="nombre" placeholder="Nombre">
+                <input class="bg-gray-800 text-white py-2 px-4 rounded-md focus:outline-none" [(ngModel)]="descripcion" placeholder="Descripcion">
 
-                @if (new){
-                    <button (click)="createPlaylist()" class="bg-blue-500">Guardar</button>
-                } @else {
-                    <button (click)="updatePlaylist()" class="bg-blue-500">Actualizar</button>
-                }
+                <div *ngIf="areFieldsEmpty()">
+                    <p class="text-red-500">Por favor completa todos los campos.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-white">Canciones:</h3>
+                    <input class="bg-gray-800 text-white py-2 px-4 rounded-md focus:outline-none" [(ngModel)]="canciones" placeholder="Cancion">
+
+                    <ng-container *ngIf="!areFieldsEmpty(); else disableUpdate">
+                        <button (click)="updatePlaylist()" class="bg-blue-500 hover:bg-blue-700 text-black py-2 px-4 rounded-full shadow-md focus:outline-none focus:ring focus:border-blue-700 transition duration-300 ease-in-out">Actualizar</button>
+                    </ng-container>
+
+                    <ng-template #disableUpdate>
+                        <button class="bg-blue-300 text-gray-500 py-2 px-4 rounded-full shadow-md cursor-not-allowed opacity-50" disabled>Actualizar</button>
+                    </ng-template>
+                </div>
             </div>
+        </div>
         </div>
     </div>
 </section>

@@ -1,30 +1,30 @@
-<section>
+<section class="bg-gray-900 bg-opacity-90 text-white flex justify-center items-center min-h-screen relative">
     <div class="text-right mx-5">
-        <button (click)="onClose()">
-            x
-        </button>
+        <button (click)="onClose()" class="absolute top-0 right-0 m-4 text-white text-xl font-bold focus:outline-none">&times;</button>
     </div>
 
     <div class="p-6 space-y-4">
-        <h1 class="text-xl font-bold text-black">
-            {{new ? 'Nueva Canción' : 'Actualiza Canción'}}
-        </h1>
-        <div class="space-y-4 md:space-y-6">
-            <input class="bg-black text-white" [(ngModel)]="titulo" placeholder="Titulo Canción"><br>
-            <input class="bg-black text-white" [(ngModel)]="artista" placeholder="Artista, Feature"><br>
-            <input class="bg-black text-white" [(ngModel)]="album" placeholder="Titulo de album"><br>
-            <input class="bg-black text-white" [(ngModel)]="genero" placeholder="Genero"><br>
-            <input class="bg-black text-white" [(ngModel)]="duracion" placeholder="HH:MM:SS"><br>
-            <input class="bg-black text-white" [(ngModel)]="anho" placeholder="YYYY"><br>
-            <input class="bg-black text-white" [(ngModel)]="url" placeholder="URL"><br>
+        <h1 class="text-3xl font-bold">{{ new ? 'Nueva Canción' : 'Actualiza Canción' }}</h1>
 
-            <div class="text-center">
-                @if (new){
-                    <button (click)="createSong()" class="bg-blue-500">Guardar</button>
-                } @else {
-                    <button (click)="updateSong()" class="bg-blue-500">Actualizar</button>
-                }
+        <div class="flex flex-col space-y-4 md:space-y-6">
+            <input class="bg-gray-800 text-white py-2 px-4 rounded-md focus:outline-none" [(ngModel)]="titulo" placeholder="Titulo Canción">
+            <input class="bg-gray-800 text-white py-2 px-4 rounded-md focus:outline-none" [(ngModel)]="artista" placeholder="Artista, Feature">
+            <input class="bg-gray-800 text-white py-2 px-4 rounded-md focus:outline-none" [(ngModel)]="album" placeholder="Titulo de album">
+            <input class="bg-gray-800 text-white py-2 px-4 rounded-md focus:outline-none" [(ngModel)]="genero" placeholder="Genero">
+            <input class="bg-gray-800 text-white py-2 px-4 rounded-md focus:outline-none" [(ngModel)]="duracion" placeholder="HH:MM:SS">
+            <input class="bg-gray-800 text-white py-2 px-4 rounded-md focus:outline-none" [(ngModel)]="anho" placeholder="YYYY">
+            <input class="bg-gray-800 text-white py-2 px-4 rounded-md focus:outline-none" [(ngModel)]="url" placeholder="URL">
+
+            <div *ngIf="areFieldsEmpty()">
+                <p class="text-red-500">Por favor completa todos los campos.</p>
             </div>
+
+            <ng-container *ngIf="!areFieldsEmpty(); else disableUpdate">
+                <button (click)="createSong()"  class="bg-blue-500 hover:bg-blue-700 text-black py-2 px-4 rounded-full shadow-md focus:outline-none focus:ring focus:border-blue-700 transition duration-300 ease-in-out">Guardar</button>
+            </ng-container>
+            <ng-template #disableUpdate>
+                <button class="bg-blue-300 text-gray-500 py-2 px-4 rounded-full shadow-md cursor-not-allowed opacity-50" disabled>Actualizar</button>
+            </ng-template>
         </div>
     </div>
 </section>

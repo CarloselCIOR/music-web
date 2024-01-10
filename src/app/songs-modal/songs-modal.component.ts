@@ -19,6 +19,14 @@ export class SongsModalComponent {
   public duracion = "";
   public anho = "";
   public url = "";
+
+  areFieldsEmpty(): boolean {
+    // Verificar si algún campo está vacío
+    return (
+        !this.titulo || !this.artista || !this.album ||
+        !this.genero || !this.duracion || !this.anho || !this.url
+    );
+  }
   
   constructor(
     public dialogRef: MatDialogRef<SongsModalComponent>,
