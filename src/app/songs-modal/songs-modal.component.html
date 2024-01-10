@@ -19,12 +19,21 @@
                 <p class="text-red-500">Por favor completa todos los campos.</p>
             </div>
 
-            <ng-container *ngIf="!areFieldsEmpty(); else disableUpdate">
-                <button (click)="createSong()"  class="bg-blue-500 hover:bg-blue-700 text-black py-2 px-4 rounded-full shadow-md focus:outline-none focus:ring focus:border-blue-700 transition duration-300 ease-in-out">Guardar</button>
-            </ng-container>
-            <ng-template #disableUpdate>
-                <button class="bg-blue-300 text-gray-500 py-2 px-4 rounded-full shadow-md cursor-not-allowed opacity-50" disabled>Actualizar</button>
-            </ng-template>
+            @if(new){
+                <ng-container *ngIf="!areFieldsEmpty(); else disableUpdate">
+                    <button (click)="createSong()"  class="bg-blue-500 hover:bg-blue-700 text-black py-2 px-4 rounded-full shadow-md focus:outline-none focus:ring focus:border-blue-700 transition duration-300 ease-in-out">Agregar</button>
+                </ng-container>
+                <ng-template #disableUpdate>
+                    <button class="bg-blue-300 text-gray-500 py-2 px-4 rounded-full shadow-md cursor-not-allowed opacity-50" disabled>Agregar</button>
+                </ng-template>
+            }@else{
+                <ng-container *ngIf="!areFieldsEmpty(); else disableUpdate">
+                    <button (click)="updateSong()"  class="bg-blue-500 hover:bg-blue-700 text-black py-2 px-4 rounded-full shadow-md focus:outline-none focus:ring focus:border-blue-700 transition duration-300 ease-in-out">Actualizar</button>
+                </ng-container>
+                <ng-template #disableUpdate>
+                    <button class="bg-blue-300 text-gray-500 py-2 px-4 rounded-full shadow-md cursor-not-allowed opacity-50" disabled>Actualizar</button>
+                </ng-template>
+            }
         </div>
     </div>
 </section>
